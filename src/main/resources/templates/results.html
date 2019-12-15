@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${TabText}">User list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2 th:text="${Title}">User list</h2>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td>IP Address</td>
+        <td>Latitude</td>
+        <td>Longitude</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">First Name</td>
+        <td th:text="${user.first_name}">First Name</td>
+        <td th:text="${user.last_name}">Last Name</td>
+        <td th:text="${user.email}">Last Name</td>
+        <td th:text="${user.ip_address}">Last Name</td>
+        <td th:text="${user.latitude}">Last Name</td>
+        <td th:text="${user.longitude}">Last Name</td>
+    </tr>
+</table>
+</body>
+</html>
