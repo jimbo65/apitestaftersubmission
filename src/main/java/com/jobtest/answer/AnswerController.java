@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AnswerController {
 
     @RequestMapping("/londoners")
-    String getLondoners(Model model) {
+    String getLondoners(Model model) throws Exception {
         String title = "List of users from London";
         String tabText = "London users";
         model.addAttribute("Title", title);
@@ -19,7 +19,7 @@ public class AnswerController {
     }
 
     @RequestMapping("/nearlondon")
-    String getNearLondon(Model model) {
+    String getNearLondon(Model model) throws Exception {
         String title = "List of users from within 50 miles of London";
         String tabText = "Users within 50 miles of London";
         model.addAttribute("Title", title);

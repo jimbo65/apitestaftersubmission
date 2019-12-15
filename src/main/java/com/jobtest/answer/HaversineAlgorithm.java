@@ -1,5 +1,7 @@
 package com.jobtest.answer;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class HaversineAlgorithm {
     static final double _eQuatorialEarthRadius = 3963.191D;
     static final double _degs2rads = (Math.PI / 180D);
