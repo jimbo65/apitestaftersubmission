@@ -1,6 +1,5 @@
 package com.jobtest.answer;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -8,7 +7,7 @@ import java.net.URL;
 
 public class Londoners {
 
-    public static User[] getLondonUsers() throws Exception {
+    public String getLondonUsers() throws Exception {
         String users;
 
         URL url = new URL("https://bpdts-test-app.herokuapp.com/city/London/users");
@@ -28,6 +27,6 @@ public class Londoners {
 
         conn.disconnect();
 
-        return UserUtils.buildUsers(users);
+        return users;
     }
 }

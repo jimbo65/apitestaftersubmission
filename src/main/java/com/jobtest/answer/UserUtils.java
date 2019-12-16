@@ -1,34 +1,20 @@
 package com.jobtest.answer;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class UserUtils {
-    public static User[] buildUsers(String jsonUsers) {
-        User[] userList = null;
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            userList = mapper.readValue(jsonUsers, User[].class);
-
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+    public JSONArray getUsersLocationWithinGivenDistance(JSONArray allUsers, double distance) {
+        HaversineAlgorithm getDistance = new HaversineAlgorithm();
+        JSONArray usersNearLondon = new JSONArray();
+        for (int i = 0; i < allUsers.length(); i++) {
+            JSONObject user = allUsers.getJSONObject(i);
+            double lat = user.getDouble("latitude");
+            double lon = user.getDouble("longitude");
+            if (getDistance.haversineInMiles(lat, lon) < distance) {
+                usersNearLondon.put(user);
+            }
         }
-        return userList;
-    }
-
-    public static User[] buildUsersCloseToLondon(String users, double distance) {
-        User[] allUsers = buildUsers(users);
-        return getUsersLocationWithinGivenDistance(allUsers, distance);
-    }
-
-    private static User[] getUsersLocationWithinGivenDistance(User[] allUsers, double distance) {
-        Stream<User> usersStream = Arrays.stream(allUsers);
-        Stream<User> usersWithinDistanceStream = usersStream.filter(x -> HaversineAlgorithm.haversineInMiles(x.getLatitude(), x.getLongitude()) < distance);
-        return usersWithinDistanceStream.toArray(User[]::new);
+        return usersNearLondon;
     }
 }
