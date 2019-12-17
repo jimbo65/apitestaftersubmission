@@ -97,4 +97,15 @@ public class UserUtilsTest {
         JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
 
     }
+
+    @Test
+    public void buildUsersCloseToLondonReturnsEmptyArrayWhenNoUsersFoundWithnFiftyMiles() throws JSONException {
+        JSONArray data = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 45.3311}]");
+        JSONArray expectedData = new JSONArray("[]");
+
+        UserUtils util = new UserUtils();
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
+        assertThat(testUsers.length(),is(equalTo(0)));
+        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+    }
 }

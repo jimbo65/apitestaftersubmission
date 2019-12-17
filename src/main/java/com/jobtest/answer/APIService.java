@@ -12,14 +12,12 @@ import java.net.URL;
 
 public class APIService {
 
-    @Bean
     public String getLondonUsers() throws Exception {
         String users;
-
         URL url = new URL("https://bpdts-test-app.herokuapp.com/city/London/users");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        conn.setRequestProperty("Accept", "application/json");
+        conn.setRequestProperty("Accept", "text/xml, application/json");
 
         if (conn.getResponseCode() != 200) {
             throw new RuntimeException("Failed : HTTP error code : "
@@ -36,7 +34,6 @@ public class APIService {
         return users;
     }
 
-    @Bean
     public String getUsersCloseToLondon() throws Exception {
 
         UserUtils util = new UserUtils();
@@ -46,7 +43,7 @@ public class APIService {
         URL url = new URL("https://bpdts-test-app.herokuapp.com/users");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        conn.setRequestProperty("Accept", "application/json");
+        conn.setRequestProperty("Accept", "text/xml, application/json");
 
         if (conn.getResponseCode() != 200) {
             throw new RuntimeException("Failed : HTTP error code : "

@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class AnswerApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
     }
 
 }

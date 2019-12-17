@@ -10,12 +10,20 @@ public class AnswerController {
     APIService service = new APIService();
 
     @RequestMapping("/londoners")
-    String getLondoners() throws Exception {
-        return service.getLondonUsers();
+    String getLondoners(){
+        try {
+            return service.getLondonUsers();
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to to get lonond users :" + e.getMessage());
+        }
     }
 
     @RequestMapping("/nearlondon")
-    String getNearLondon() throws Exception {
-        return service.getUsersCloseToLondon();
+    String getNearLondon()  {
+        try {
+            return service.getUsersCloseToLondon();
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to to get users within fifty miles of London :" + e.getMessage());
+        }
     }
 }
