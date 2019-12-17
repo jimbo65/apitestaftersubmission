@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AnswerController {
 
+    APIService service = new APIService();
+
     @RequestMapping("/londoners")
     String getLondoners() throws Exception {
-        Londoners londoners = new Londoners();
-        return londoners.getLondonUsers();
+        return service.getLondonUsers();
     }
 
     @RequestMapping("/nearlondon")
     String getNearLondon() throws Exception {
-        NearToLondon nearToLondon = new NearToLondon();
-        return nearToLondon.getUsersCloseToLondon();
+        return service.getUsersCloseToLondon();
     }
 }

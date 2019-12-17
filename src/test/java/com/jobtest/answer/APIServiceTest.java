@@ -2,7 +2,7 @@ package com.jobtest.answer;
 
 import org.junit.Test;
 
-public class LondonersTest {
+public class APIServiceTest {
 
     @Test
     public void getLondonUsers() {

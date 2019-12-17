@@ -10,13 +10,21 @@ mvn -N io.takari:maven:wrapper
 ```
 
 ## To Run the application
-From the command line 
+From the command line on a Windows machine
   ``` 
 mvnw spring-boot:run
   ``` 
-or generate a Jar file with 
+From the command line on a mac
+  ``` 
+.mvnw spring-boot:run
+  ``` 
+or generate a Jar file on a Windows machine with 
   ``` 
 mvnw clean package
+  ``` 
+or generate a Jar file on a mac machine with 
+  ``` 
+.mvnw clean package
   ``` 
 then run
   ``` 

@@ -9,10 +9,15 @@ public class UserUtils {
         JSONArray usersNearLondon = new JSONArray();
         for (int i = 0; i < allUsers.length(); i++) {
             JSONObject user = allUsers.getJSONObject(i);
-            double lat = user.getDouble("latitude");
-            double lon = user.getDouble("longitude");
-            if (getDistance.haversineInMiles(lat, lon) < distance) {
-                usersNearLondon.put(user);
+
+            if (user.has("latitude") && user.has("longitude")) {
+                Object lat = user.getDouble("latitude");
+                Object lon = user.getDouble("longitude");
+                if(lat instanceof Double && lon instanceof Double) {
+                    if (getDistance.haversineInMiles((double)lat, (double)lon) < distance) {
+                        usersNearLondon.put(user);
+                    }
+                }
             }
         }
         return usersNearLondon;

@@ -1,44 +1,60 @@
 package com.jobtest.answer;
 
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(AnswerController.class)
-class AnswerControllerTest {
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = AnswerController.class)
+@WebAppConfiguration
+public class AnswerControllerTest {
+
+    protected MockMvc mvc;
+    private APIService service;
 
     @Autowired
-    private MockMvc mockMvc;
+    WebApplicationContext webApplicationContext;
 
-    @MockBean
-    private Londoners mockLondoners;
 
+    @Before
+    public void setUp() {
+        mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        service = mock(APIService.class);
+
+    }
     @Test
-    void getLondoners() throws Exception {
+    public void getLondoners() throws Exception {
 
         String data = "[{\"last_name\": \"WithinFiftyMilesOfLondon\"}, {\"last_name\": \"Last2\"}, {\"last_name\": \"Last3\"}]";
-        when(mockLondoners.getLondonUsers()).thenReturn(data);
 
         String uri = "/londoners";
 
-        this.mockMvc.perform(get(uri)).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("WithinFiftyMilesOfLondon")));
+        when(service.getLondonUsers()).thenReturn(data);
+
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
+                .accept(MediaType.TEXT_PLAIN)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+        String content = mvcResult.getResponse().getContentAsString();
+        System.out.println(content);
     }
 
-    @Test
-    void getNearLondon() {
-    }
 }
