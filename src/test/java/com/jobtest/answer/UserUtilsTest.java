@@ -2,15 +2,13 @@ package com.jobtest.answer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class UserUtilsTest {
 
@@ -20,9 +18,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(1)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(1)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -32,9 +30,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311},{\"last_name\": \"Last3\",  \"latitude\": 51.2964, \"longitude\": 0.3311}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(2)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(2)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -44,9 +42,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(1)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(1)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -56,9 +54,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311}, {\"last_name\": \"Last2\", \"latitude\": \"51.2964\", \"longitude\": \"0.3311\"}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(2)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(2)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -68,9 +66,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(1)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(1)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -80,9 +78,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(1)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(1)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -92,9 +90,9 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[{\"last_name\": \"WithinFiftyMilesOfLondon\", \"latitude\": 51.2964, \"longitude\": 0.3311}]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(1)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(1)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
 
     }
 
@@ -104,8 +102,8 @@ public class UserUtilsTest {
         JSONArray expectedData = new JSONArray("[]");
 
         UserUtils util = new UserUtils();
-        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data,50D);
-        assertThat(testUsers.length(),is(equalTo(0)));
-        JSONAssert.assertEquals(testUsers,expectedData, JSONCompareMode.LENIENT);
+        JSONArray testUsers = util.getUsersLocationWithinGivenDistance(data, 50D);
+        assertThat(testUsers.length(), is(equalTo(0)));
+        JSONAssert.assertEquals(testUsers, expectedData, JSONCompareMode.LENIENT);
     }
 }

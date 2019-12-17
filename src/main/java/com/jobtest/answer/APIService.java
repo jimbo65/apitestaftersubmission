@@ -1,7 +1,6 @@
 package com.jobtest.answer;
 
 import org.json.JSONArray;
-import org.springframework.context.annotation.Bean;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
