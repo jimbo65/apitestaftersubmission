@@ -11,8 +11,8 @@ public class UserUtils {
             JSONObject user = allUsers.getJSONObject(i);
 
             if (user.has("latitude") && user.has("longitude")) {
-                Object lat = user.getDouble("latitude");
-                Object lon = user.getDouble("longitude");
+                Object lat = user.get("latitude");
+                Object lon = user.get("longitude");
                 if(lat instanceof Double && lon instanceof Double) {
                     if (getDistance.haversineInMiles((double)lat, (double)lon) < distance) {
                         usersNearLondon.put(user);
@@ -21,5 +21,13 @@ public class UserUtils {
             }
         }
         return usersNearLondon;
+    }
+
+
+    public class boolean isBetween(double value, double min, double max){
+
+        lat instanceof Double && lon instanceof Double
+
+        return((value >= min) && (value <= max));
     }
 }
