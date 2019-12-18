@@ -1,4 +1,4 @@
-package com.jobtest.answer;
+package com.apitest.answer;
 
 
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class AnswerControllerTest {
         String uri = "/londoners";
         given(answerController.getLondoners()).willReturn(data);
 
-        mvc.perform(get("/londoners")
+        mvc.perform(get(uri)
                 .contentType(MediaType.TEXT_PLAIN))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(3)))
@@ -46,10 +46,10 @@ public class AnswerControllerTest {
 
         String data = "[{\"last_name\": \"WithinFiftyMilesOfLondon\"}]";
 
-        String uri = "/londoners";
-        given(answerController.getLondoners()).willReturn(data);
+        String uri = "/nearlondon";
+        given(answerController.getNearLondon()).willReturn(data);
 
-        mvc.perform(get("/londoners")
+        mvc.perform(get(uri)
                 .contentType(MediaType.TEXT_PLAIN))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))

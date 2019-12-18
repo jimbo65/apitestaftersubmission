@@ -1,4 +1,4 @@
-package com.jobtest.answer;
+package com.apitest.answer;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;

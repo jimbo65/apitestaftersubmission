@@ -1,4 +1,4 @@
-package com.jobtest.answer;
+package com.apitest.answer;
 
 public class HaversineAlgorithm {
     static final double _eQuatorialEarthRadius = 3963.191D;

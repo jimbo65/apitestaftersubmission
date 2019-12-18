@@ -3,7 +3,7 @@
 This application uses the Maven wrapper MVNW to run it. If you do 
 not have this wrapper then in a terminal window do the following   
   
-  - cd to this applications root folder __/answer__
+  - cd to this applications root folder __/apitest__
   - run the command 
   ``` 
 mvn -N io.takari:maven:wrapper
@@ -16,7 +16,7 @@ mvnw spring-boot:run
   ``` 
 From the command line on a mac
   ``` 
-.mvnw spring-boot:run
+./mvnw spring-boot:run
   ``` 
 or generate a Jar file on a Windows machine with 
   ``` 
@@ -24,7 +24,7 @@ mvnw clean package
   ``` 
 or generate a Jar file on a mac machine with 
   ``` 
-.mvnw clean package
+./mvnw clean package
   ``` 
 then run
   ``` 

@@ -1,4 +1,4 @@
-package com.jobtest.answer;
+package com.apitest.answer;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
