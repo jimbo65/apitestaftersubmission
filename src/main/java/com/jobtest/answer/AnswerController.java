@@ -14,7 +14,7 @@ public class AnswerController {
         try {
             return service.getLondonUsers();
         } catch (Exception e) {
-            throw new RuntimeException("Unable to to get lonond users :" + e.getMessage());
+            throw new RuntimeException("Unable to to get lonodon users :" + e.getMessage());
         }
     }
 
