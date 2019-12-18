@@ -1,7 +1,9 @@
 package com.apitest.answer;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
@@ -14,7 +16,8 @@ public class AnswerController {
         try {
             return service.getLondonUsers();
         } catch (Exception e) {
-            throw new RuntimeException("Unable to to get lonodon users :" + e.getMessage());
+
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Unable to to get lonodon users : " + e.getMessage(), e);
         }
     }
 
@@ -23,7 +26,7 @@ public class AnswerController {
         try {
             return service.getUsersCloseToLondon();
         } catch (Exception e) {
-            throw new RuntimeException("Unable to to get users within fifty miles of London :" + e.getMessage());
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to to get users within fifty miles of London : " + e.getMessage(), e);
         }
     }
 }
